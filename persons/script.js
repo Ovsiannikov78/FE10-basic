@@ -32,7 +32,7 @@ for (let i = 0; i < personsNumber; i++) {
 let innerHTMLTableTfoot = '';
     innerHTMLTableTfoot = '<div><p>' + 'Avarage age ' + ' ---------- ' + averageAge + '</p></div>';
 
-document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody;
+(document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody);
 document.getElementsByTagName('p')[0].innerHTML = innerHTMLTableTfoot ;
 
 console.log('Average age of person:' + averageAge);
