@@ -22,7 +22,8 @@ const sortedPersons = persons.sort(function (a, b) {
         return 0;
 });
 
-const sortedPersonsByAge = persons.sort(function (a, b) { return b.age - a.age });
+const sortedPersonsByAge = persons.sort(function (a, b) 
+{ return b.age - a.age });
 
 let innerHtmlTableBody = '';
 for (let i = 0; i < personsNumber; i++) {
@@ -32,7 +33,7 @@ for (let i = 0; i < personsNumber; i++) {
 let innerHTMLTableTfoot = '';
     innerHTMLTableTfoot = '<div><p>' + 'Avarage age ' + ' ---------- ' + averageAge + '</p></div>';
 
-(document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody);
+document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody;
 document.getElementsByTagName('p')[0].innerHTML = innerHTMLTableTfoot ;
 
 console.log('Average age of person:' + averageAge);
