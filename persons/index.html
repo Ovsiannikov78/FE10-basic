@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HW 2020-05-04</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="script.js" defer async></script>
+    <style> th { text-align: left; } </style>
 </head>
-
 <body>
     <div class="container">
         <form>
@@ -20,30 +19,27 @@
                 <label>User age</label>
                 <input type="text" class="form-control" name="age">
             </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" name="city">
+            </div>
+            <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>    
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Age</th>
+                    <th scope="col">City</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
-            <tfoot>
-                <tr>
-                    <td>
-                        <div class="alert alert-primary" role="alert"></div>
-                        <div id="max" class="alert alert-primary" role="alert"></div>
-                        <div id="min" class="alert alert-primary" role="alert"></div>
-                    </td>
-                </tr>
-            </tfoot>
+            <tfoot><tr><td><div class="alert alert-primary" role="alert"></div></td></tr></tfoot>
         </table>
     </div>
 </body>
-
 </html>
-
+                    
