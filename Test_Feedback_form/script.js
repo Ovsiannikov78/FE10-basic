@@ -1,10 +1,10 @@
-function showUsersTable(persons = []) {
+function showUsersTable(fields = []) {
 
     let numberOfTheRecord = 0;
 
     let innerHtmlTableBody = '';
-    for (let i = 0; i < persons.length; i++) {
-        innerHtmlTableBody += '<tr><td>' + persons[i].name + '</td><td>' + persons[i].email + '</td><td>' + persons[i].dateOfAddedFeedback + '</td></tr>';
+    for (let i = 0; i < fields.length; i++) {
+        innerHtmlTableBody += '<tr><td>' + fields[i].name + '</td><td>' + fields[i].email + '</td><td>' + fields[i].dateOfAddedFeedback + '</td></tr>';
         numberOfTheRecord++
     }
     document.getElementsByTagName('tbody')[0].innerHTML = innerHtmlTableBody;
@@ -16,23 +16,23 @@ function dateOfAddedFeedback() {
     document.getElementById("date").innerHTML = n;
 }
 
-let persons = [];
+let fields = [];
 
 const form$ = document.getElementsByTagName('form')[0];
 form$.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    let person = {};
-    person.name = document.querySelector('input[name=name]').value;
-    person.email = document.querySelector('input[name=email]').value;
-   /*  если раскоментировать нижнюю строку , добавляется дата в колонку Date of added feedback, но больше ничего не добавляется.
-       Не совсем понимаю , что происходит и в чём ошибка.  */
-    
-       //person.dateOfAddedFeedback = document.getElementById("date").innerHTML   
+    let field = {};
+    field.name = document.querySelector('input[name=name]').value;
+    field.email = document.querySelector('input[name=email]').value;
+    /*  если раскоментировать нижнюю строку , добавляется дата в колонку Date of added feedback, но больше ничего не добавляется.
+        Не совсем понимаю , что происходит и в чём ошибка.  */
 
-    persons.push(person);
+    //field.dateOfAddedFeedback = document.getElementById("date").innerHTML   
 
-    showUsersTable(persons);
+    fields.push(field);
+
+    showUsersTable(fields);
 
 })
 
