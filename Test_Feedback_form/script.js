@@ -13,7 +13,7 @@ function showUsersTable(fields = []) {
 function dateOfAddedFeedback() {
     let d = new Date();
     let n = d.toLocaleString();
-    document.getElementById("date").innerHTML = n;
+    document.getElementById('date').innerHTML = n;
 }
 
 let fields = [];
@@ -25,15 +25,17 @@ form$.addEventListener('submit', function (event) {
     let field = {};
     field.name = document.querySelector('input[name=name]').value;
     field.email = document.querySelector('input[name=email]').value;
-    /*  если раскоментировать нижнюю строку , добавляется дата в колонку Date of added feedback, но больше ничего не добавляется.
-        Не совсем понимаю , что происходит и в чём ошибка.  */
+    field.dateOfAddedFeedback = document.querySelector('button').addEventListener('click', dateOfAddedFeedback());
 
-    //field.dateOfAddedFeedback = document.getElementById("date").innerHTML   
+    //field.dateOfAddedFeedback = document.getElementById('date').innerHTML;
 
     fields.push(field);
 
     showUsersTable(fields);
 
 })
+
+
+
 
 
