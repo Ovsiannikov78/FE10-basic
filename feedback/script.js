@@ -1,26 +1,28 @@
 let data = [
-    {
-      id: 1,  
-      name: 'a',
-      email: 'c@gmail.com',  
-    },
-    {
-      id: 2,
-      name: 'c',
-      email: 'a@gmail.com'
-    },
-    {
-      id: 3,
-      name: 'b',
-      email: 'b@gmail.com'
-    },
+    /*   {
+         id: 1,  
+         name: 'Vasya'  
+       },
+       {
+         id: 2,
+         name: 'John'
+       },
+       {
+         id: 3,
+         name: 'Petya'
+       },*/
 ];
 
-renderFeedbackTable(data);
+//renderFeedbackTable(data); 
+
+let sortedByName = 0;
+let sortedByEmail = 0;
+let sortedByFeedback = 0;
+let sortedByDate = 0; // state: 0 - not sorted, 1 - sorted ASC, -1 sorted DSC;
 
 document.querySelector('form').addEventListener('submit', event => {
     event.preventDefault();
-    
+
     let feedback = {};
 
     // Extract data from form
@@ -52,47 +54,98 @@ function renderFeedbackTable(data) {
     document.querySelector('table tbody').innerHTML = tbody;
 }
 
-let sorted = {
-    order: 0, // state: 0 - not sorted, 1 - sorted ASC, -1 sorted DSC;
-    field: '',
-    fieldHeader: ''
-}; 
-
-function sort(field) {
+function sortByName() {
     let sortedData = [...data];
-    if (sorted.field !== '' && field !== sorted.field) {
-        document.getElementById(sorted.field).innerHTML = sorted.fieldHeader;
-        sorted.order = 0;
+    if (sortedByName === 0) {
+        sortedData.sort((a, b) => {
+            if (a['name'] > b['name']) return 1;
+            if (a['name'] < b['name']) return -1;
+            return 0;
+        });
+        sortedByName = 1;
+    } else if (sortedByName === 1) {
+        sortedData.sort((a, b) => {
+            if (a['name'] > b['name']) return -1;
+            if (a['name'] < b['name']) return 1;
+            return 0;
+        });
+        sortedByName = -1;
+    } else {
+        sortedByName = 0;
     }
 
-    sorted.field = field;
-    if (sorted.order === 0) {
-        sorted.fieldHeader = document.getElementById(field).innerHTML;
+    renderFeedbackTable(sortedData);
+}
+function sortByEmail() {
+    let sortedData = [...data];
+    if (sortedByEmail === 0) {
         sortedData.sort((a, b) => {
-            if (a[field] > b[field]) return 1;
-            if (a[field] < b[field]) return -1;
+            if (a['email'] > b['email'])  return 1;
+            if (a['email'] < b['email']) return -1;
             return 0;
         });
-        sorted.order = 1;
-        document.getElementById(field).innerHTML = sorted.fieldHeader + '\u2193';
-    } else if (sorted.order === 1) {
+        sortedByEmail = 1;
+    } else if (sortedByEmail === 1) {
         sortedData.sort((a, b) => {
-            if (a[field] > b[field]) return -1;
-            if (a[field] < b[field]) return 1;
+            if (a['email'] > b['email']) return -1;
+            if (a['email'] < b['email']) return 1;
             return 0;
         });
-        sorted.order = -1;
-        document.getElementById(field).innerHTML = sorted.fieldHeader + '\u2191';
+        sortedByEmail = -1;
     } else {
-        document.getElementById(field).innerHTML = sorted.fieldHeader;
-        sorted.order = 0;
+        sortedByEmail = 0;
     }
 
     renderFeedbackTable(sortedData);
 }
 
-document.querySelector('#name').addEventListener('click', function() {
-    sort('name');
-})
+function sortByFeedback() {
+    let sortedData = [...data];
+    if (sortedByFeedback === 0) {
+        sortedData.sort((a, b) => {
+            if (a['feedback'] > b['feedback']) return 1;
+            if (a['feedback'] < b['feedback']) return -1;
+            return 0;
+        });
+        sortedByFeedback = 1;
+    } else if (sortedByFeedback === 1) {
+        sortedData.sort((a, b) => {
+            if (a['feedback'] > b['feedback']) return -1;
+            if (a['feedback'] < b['feedback']) return 1;
+            return 0;
+        });
+        sortedByFeedback = -1;
+    } else {
+        sortedByFeedback = 0;
+    }
 
-// document.querySelector('#name') === document.getElementById('name')
+    renderFeedbackTable(sortedData);
+}
+
+function sortByDate() {
+    let sortedData = [...data];
+    if (sortedByDate === 0) {
+        sortedData.sort((a, b) => {
+            if (a['date'] > b['date']) return 1;
+            if (a['date'] < b['date']) return -1;
+            return 0;
+        });
+        sortedByDate = 1;
+    } else if (sortedByDate === 1) {
+        sortedData.sort((a, b) => {
+            if (a['date'] > b['date']) return -1;
+            if (a['date'] < b['date']) return 1;
+            return 0;
+        });
+        sortedByDate = -1;
+    } else {
+        sortedByDate = 0;
+    }
+
+    renderFeedbackTable(sortedData);
+}
+
+            
+        
+            
+        
