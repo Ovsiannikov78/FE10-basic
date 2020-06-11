@@ -80,7 +80,7 @@ function sortByEmail() {
     let sortedData = [...data];
     if (sortedByEmail === 0) {
         sortedData.sort((a, b) => {
-            if (a['email'] > b['email']) return 1;
+            if (a['email'] > b['email'])  return 1;
             if (a['email'] < b['email']) return -1;
             return 0;
         });
@@ -145,4 +145,7 @@ function sortByDate() {
     renderFeedbackTable(sortedData);
 }
 
-
+            
+        
+            
+        
