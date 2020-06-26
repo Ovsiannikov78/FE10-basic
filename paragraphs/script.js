@@ -7,7 +7,11 @@ function createEventListener(i) {
     return function() {
         currentColor++;
         console.log("Click on " + i + " paragraph, currentColor = " + currentColor);
-        this.style['background-color'] = colors[currentColor % colors.length];
+        if(i%2 === 0){
+            this.style['color'] = colors[currentColor % colors.length];
+        }else{
+            this.style['backround-color'] = colors[currentColor % colors.length];
+        }
     }
 }
 
