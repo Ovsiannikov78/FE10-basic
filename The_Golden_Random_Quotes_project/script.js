@@ -5,7 +5,7 @@ You can copy quotes from https://www.thegoldenquotes.net/best-100-public-domain-
 
 */
 
-let quotes = [
+ let quotes = [
     '1. The secret of getting ahead is getting started... - Mark Twain',
     '2. Beware of missing chances, otherwise it may be altogether too late some day... - Franz Liszt',
     '3. The great aim of education is not knowledge but action...  - Herbert Spencer',
@@ -23,7 +23,5 @@ document.getElementById("quoteDisplay").addEventListener("click", function () {
     document.getElementById("text").innerHTML = quote;
 });
 
-
-
-
+ 
 

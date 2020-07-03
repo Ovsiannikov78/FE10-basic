@@ -1,0 +1,19 @@
+body {
+  background-image: url("https://wallpapercave.com/wp/5KLTq1z.jpg");
+}
+#text {
+  text-align: center;
+  color:white;
+  font-size: 30px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
+button {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 450px;
+} 
