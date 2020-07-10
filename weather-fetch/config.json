@@ -1,0 +1,7 @@
+{
+"URL" : "http://api.openweathermap.org/data/2.5/weather",
+"APPID" : "2ad17aaec16633bdb4e812b03aa26b18",
+"WeatherFieldConig" : [{"name": "Temperature", "field": "main.temp"},
+{"name": "Wind deg", "field": "wind.deg"},
+{"name": "Wind speed", "field": "wind.speed"}]
+}
