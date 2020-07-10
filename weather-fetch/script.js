@@ -2,21 +2,7 @@
 
 fetch('/weather-fetch/config.json')
     .then(response => response.json())
-    .then(config => {
-        console.log(config);
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const country = event.target['country'].value;
-            const city = event.target['city'].value;
-            
-            console.log(config);
-            
-            fetch(`${config.URL}?country=${country}&q=${city}&APPID=${config.APPID}`)
-                .then(response => response.json())
-                .then(json => showWeather(json, event.target, config));
-        })
-        
-    })
+    .then(config => configFetch(config))
     .catch(error => console.log(error));
 
     function showWeather(json, target, config) {
@@ -35,3 +21,22 @@ fetch('/weather-fetch/config.json')
     
         titleElement$.nextElementSibling.innerHTML = html;
     }
+
+    function configFetch(config) {
+
+       console.log(config);
+           document.querySelector('form').addEventListener('submit', function(event) {
+               event.preventDefault();
+               const country = event.target['country'].value;
+               const city = event.target['city'].value;
+               
+               console.log(config);
+               
+               fetch(`${config.URL}?country=${country}&q=${city}&APPID=${config.APPID}`)
+                   .then(response => response.json())
+                   .then(json => showWeather(json, event.target, config));
+   })
+}; 
+
+        
+    
